@@ -1,5 +1,6 @@
 习题
 1.1 下面这个简单的的程序实现了一种长效的（persistent）函数式二叉搜索树，使得如果 tree2 = insert(x, tree1)，则当使用 tree2 时，tree1 仍可以继续用于查找。
+
 typedef struct tree *T_tree;
 struct tree{
 	T_tree left;
@@ -21,7 +22,10 @@ T_tree insert(String key,T_tree t){
 			return Tree(t->left,t->key,insert(key,t->right));	
 	else  return Tree(t->left,key,t->right);
 } 
+
+
 a. 实现函数 member，若查找到了相应项，返回 TRUE；否则返回 FALSE。
+
 Bool member(String key,T_tree t){
 	while(t){
 		if(key>t->key)
@@ -33,7 +37,9 @@ Bool member(String key,T_tree t){
 	}
 	return False;
 }
+
 b. 扩充这个程序使其不仅能判别成员关系，而且还能将键值映射到其绑定层。
+
 T_tree insert(String key,void *binding,T_tree t){
 	if(t==NULL)  return Tree(NULL,key,NULL,binding);
 	else if(strcmp(key,t->key)<0)
