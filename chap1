@@ -31,7 +31,7 @@ Bool member(String key,T_tree t){
 		if(key>t->key)
 			t=t->right;
 		else if(key<t->key)
-			t=t->key
+			t=t->left;
 		else
 			return True;
 	}
@@ -50,7 +50,7 @@ T_tree insert(String key,void *binding,T_tree t){
 } 
 
 void * lookup(String key,T_tree t){
-	if(!BST){
+	if(!t){
 		return NULL;
 	}
 	if(key>t->key)
